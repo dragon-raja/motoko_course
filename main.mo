@@ -64,7 +64,7 @@ actor{
         return "Hello, " # name # "!";
     };
 
-    public shared quest func http_request(request : HttpRequest) : async HttpResponse {
+    public shared query func http_request(request : HttpRequest) : async HttpResponse {
         {
             body = Text.encodeUtf8("<html><body>"#debug_show(currentValue)#"</body></html>");
             headers = [];
