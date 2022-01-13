@@ -56,11 +56,9 @@ actor{
         var all : List.List<Message> = List.nil();
         for(id in Iter.fromList(followed)){
             let canister : MyBlog = actor(Principal.toText(id));
-            let msgs = await canister.posts(0);
+            let msgs = await canister.posts(since);
             for(msg in Iter.fromArray(msgs)){
-                if(msg.time >= since){
-                    all := List.push(msg, all);
-                };
+                all := List.push(msg, all);
             };
         };
         List.toArray(all)
